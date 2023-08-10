@@ -1,5 +1,6 @@
 status = "";
 TV_img = "";
+objects = [];
 
 function preload(){
     TV_image = loadImage("TV.png");
@@ -23,8 +24,21 @@ function gotResults(results,error){
         console.error(error);
     }
     console.log(results);
+    objects = results;
 }
 
 function draw(){
     image(TV_image,0,0,640,350);
+    if(Status != ""){
+        for(i = 0; i < objects.length; i++){
+            document.getElementById("Status").innerHTML = "Status : Objects Detected";
+        
+            fill("#fc0303");
+            percent = floor(objects(i).confidence * 100);
+            text(objects(i).label + " " + percent + "%",objects(i).height);
+            noFill();
+            stroke("#fc0303");
+            Rect(objects(i).x, objects(i).y, objects(i).width, objects(i).height);
+        }
+    }
 }
