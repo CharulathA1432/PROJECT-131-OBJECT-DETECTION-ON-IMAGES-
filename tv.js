@@ -1,9 +1,9 @@
 Status = "";
-studydesk_image = "";
+tV_image = "";
 objects = [];
 
 function preload(){
-    studydesk_image = loadImage("studydesk.jpg");
+    tV_image = loadImage("tV.jpg");
 }
 
 function setup(){
@@ -16,7 +16,7 @@ function setup(){
 function modelLoaded(){
     console.log("Model Loaded!");
     Status = true;
-    object_Detector.detect(studydesk_image,gotResults);
+    object_Detector.detect(tV_image,gotResults);
 }
 
 function gotResults(error,results){
@@ -28,17 +28,17 @@ function gotResults(error,results){
 }
 
 function draw(){
-    image(studydesk_image,0,0,640,350);
+    image(tV_image,0,0,640,350);
     if(Status != ""){
         for(i = 0; i < objects.length; i++){
             document.getElementById("status").innerHTML = "Status: Objects Detected";
 
             fill("#fc0303");
             percent = floor(objects[i].confidence * 100);
-            text(objects[i].label + " " + percent + "%",objects[i].x, objects[i].y);
+            text(objects[i].label + " " + percent + "%",objects[i].x - 180, objects[i].y - 200);
             noFill();
             stroke("#fc0303");
-            rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+            rect(objects[i].x - 180, objects[i].y - 200, objects[i].width - 2693, objects[i].height - 1750);
         }
     }
 }

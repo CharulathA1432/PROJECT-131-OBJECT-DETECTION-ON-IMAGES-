@@ -1,28 +1,22 @@
-body
-{
-    background-size: cover;
+body{
     background-position: center;
+    background-size: cover;
 }
-.header
-{
-    color: black; 
-    font-size: 25px;
-    box-shadow: 5px 5px 5px rgb(248, 106, 106);
+.heading{
+    width: 100%;
+    font-size: larger;
+    margin-top: 0px;
 }
-.header:hover
-{
-    width:220px; 
+.heading:hover{
+    font-size: large;
 }
-.link
-{
-    font-size: 20px;
-    background: cover;
+.link{
+    background-color: black;
     border-radius: 10px;
-    width: 300px;
-    margin-top: 15px;
+    width: 80px;
+    float: right;
 }
-.link:hover
-{
-    font-size: 25px;
-    text-decoration: underline;
+canvas{
+    border-radius: 10px;
+    box-shadow: 7px 7px 7px grey;
 }

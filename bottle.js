@@ -1,9 +1,9 @@
 Status = "";
-studydesk_image = "";
+bottle_image = "";
 objects = [];
 
 function preload(){
-    studydesk_image = loadImage("studydesk.jpg");
+    Bottle_image = loadImage("bottle.jpg");
 }
 
 function setup(){
@@ -16,7 +16,7 @@ function setup(){
 function modelLoaded(){
     console.log("Model Loaded!");
     Status = true;
-    object_Detector.detect(studydesk_image,gotResults);
+    object_Detector.detect(bottle_image,gotResults);
 }
 
 function gotResults(error,results){
@@ -28,17 +28,17 @@ function gotResults(error,results){
 }
 
 function draw(){
-    image(studydesk_image,0,0,640,350);
+    image(bottle_image,0,0,640,350);
     if(Status != ""){
         for(i = 0; i < objects.length; i++){
             document.getElementById("status").innerHTML = "Status: Objects Detected";
 
             fill("#fc0303");
             percent = floor(objects[i].confidence * 100);
-            text(objects[i].label + " " + percent + "%",objects[i].x, objects[i].y);
+            text(objects[i].label + " " + percent + "%",objects[i].x - 800, objects[i].y - 520);
             noFill();
             stroke("#fc0303");
-            rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+            rect(objects[i].x - 800, objects[i].y - 520, objects[i].width - 910, objects[i].height - 2640);
         }
     }
 }

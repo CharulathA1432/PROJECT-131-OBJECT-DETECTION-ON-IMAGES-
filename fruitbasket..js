@@ -1,9 +1,9 @@
 Status = "";
-studydesk_image = "";
+Fruitbasket_image = "";
 objects = [];
 
 function preload(){
-    studydesk_image = loadImage("studydesk.jpg");
+    Fruitbasket_image = loadImage("Fruitbasket.jpg");
 }
 
 function setup(){
@@ -16,7 +16,7 @@ function setup(){
 function modelLoaded(){
     console.log("Model Loaded!");
     Status = true;
-    object_Detector.detect(studydesk_image,gotResults);
+    object_Detector.detect(Fruitbasket_image,gotResults);
 }
 
 function gotResults(error,results){
@@ -28,7 +28,7 @@ function gotResults(error,results){
 }
 
 function draw(){
-    image(studydesk_image,0,0,640,350);
+    image(Fruitbasket_image,0,0,640,350);
     if(Status != ""){
         for(i = 0; i < objects.length; i++){
             document.getElementById("status").innerHTML = "Status: Objects Detected";
